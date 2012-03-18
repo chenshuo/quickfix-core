@@ -1,0 +1,7 @@
+#include <ext/vstring.h>
+#include <ext/vstring_fwd.h>
+
+namespace std
+{
+  typedef __gnu_cxx::__sso_string string;
+}

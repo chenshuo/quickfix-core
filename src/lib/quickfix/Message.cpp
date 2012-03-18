@@ -202,6 +202,7 @@ std::string& Message::toString( std::string& str,
   QF_STACK_POP
 }
 
+/*
 std::string Message::toXML() const
 { QF_STACK_PUSH(Message::toXML)
 
@@ -231,7 +232,9 @@ std::string& Message::toXML( std::string& str ) const
 
   QF_STACK_POP
 }
+*/
 
+/*
 std::string Message::toXMLFields(const FieldMap& fields, int space) const
 { QF_STACK_PUSH(Message::toXMLFields)
 
@@ -275,6 +278,7 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
 
   QF_STACK_POP
 }
+*/
 
 void Message::setString( const std::string& string,
                          bool doValidation,
@@ -530,20 +534,20 @@ void Message::validate()
 
     if ( aBodyLength != bodyLength() )
     {
-      std::stringstream text;
-      text << "Expected BodyLength=" << bodyLength()
-           << ", Recieved BodyLength=" << (int)aBodyLength;
-      throw InvalidMessage(text.str());
+      // std::stringstream text;
+      // text << "Expected BodyLength=" << bodyLength()
+      //      << ", Recieved BodyLength=" << (int)aBodyLength;
+      throw InvalidMessage("XXX");
     }
 
     const CheckSum& aCheckSum = FIELD_GET_REF( m_trailer, CheckSum );
 
     if ( aCheckSum != checkSum() )
     {
-      std::stringstream text;
-      text << "Expected CheckSum=" << checkSum()
-           << ", Recieved CheckSum=" << (int)aCheckSum;
-      throw InvalidMessage(text.str());
+      // std::stringstream text;
+      // text << "Expected CheckSum=" << checkSum()
+      //      << ", Recieved CheckSum=" << (int)aCheckSum;
+      throw InvalidMessage("XXX");
     }
   }
   catch ( FieldNotFound& )

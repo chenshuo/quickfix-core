@@ -29,7 +29,6 @@
 #if (HAVE_LIBXML > 0 || _MSC_VER == 0)
 #include "LIBXML_DOMDocument.h"
 #include <libxml/xpath.h>
-#include <sstream>
 
 namespace FIX
 {
@@ -118,10 +117,11 @@ namespace FIX
 
     try
     {
-      std::stringstream sstream;
-      sstream << stream.rdbuf();
-      m_pDoc = xmlParseDoc((xmlChar*)sstream.str().c_str());
-      return m_pDoc != NULL;
+      //std::stringstream sstream;
+      //sstream << stream.rdbuf();
+      //m_pDoc = xmlParseDoc((xmlChar*)sstream.str().c_str());
+      //return m_pDoc != NULL;
+      return false;
     }
     catch( ... ) { return false; }
 

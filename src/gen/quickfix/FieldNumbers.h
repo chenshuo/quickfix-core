@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
- 
+
 /****************************************************************************
 ** Copyright (c) quickfixengine.org  All rights reserved.
 **
@@ -18,11 +18,10 @@
 ** not clear to you.
 **
 ****************************************************************************/
- 
+
 #ifndef FIX_FIELDNUMBERS_H
 #define FIX_FIELDNUMBERS_H
 
-#include <iostream>
 #include "DeprecatedFieldNumbers.h"
 
 namespace FIX
@@ -960,6 +959,7 @@ namespace FIX
     const int InternalMin = 10000;
   }
 
+  /*
   inline std::istream& operator>> (std::istream& stream, FIELD::Field& field)
   {
     int fieldInteger;
@@ -967,6 +967,7 @@ namespace FIX
     field = static_cast<FIELD::Field>(fieldInteger);
     return stream;
   }
+  */
 }
 
 #endif //FIX_FIELDNUMBERS_H

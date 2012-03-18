@@ -26,7 +26,6 @@
 #pragma warning( disable : 4786 )
 #endif
 
-#include <sstream>
 #include <numeric>
 #include "FieldNumbers.h"
 #include "FieldConvertors.h"

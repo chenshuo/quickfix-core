@@ -27,7 +27,6 @@
 #endif
 
 #include "Utility.h"
-#include <string>
 #include <time.h>
 
 namespace FIX
@@ -47,13 +46,13 @@ namespace FIX
 /// \sa http://scienceworld.wolfram.com/astronomy/Weekday.html
 ///
 /// \author Caleb Epstein <caleb.epstein at gmail dot com>
-struct DateTime 
+struct DateTime
 {
   int m_date;
   int m_time;
 
   /// Magic numbers
-  enum 
+  enum
   {
     SECONDS_PER_DAY = 86400,
     SECONDS_PER_HOUR = 3600,
@@ -77,22 +76,22 @@ struct DateTime
 
   /// Construct from the specified components
   DateTime( int year, int month, int day,
-            int hour, int minute, int second, int millis ) 
+            int hour, int minute, int second, int millis )
   {
     m_date = julianDate( year, month, day );
     m_time = makeHMS( hour, minute, second, millis );
   }
 
   /// Return the year portion of the date
-  inline int getYear() const 
+  inline int getYear() const
   {
     int y, m, d;
     getYMD( y, m, d );
     return y;
   }
-    
+
   /// Return the month (1-12) portion of the date
-  inline int getMonth() const 
+  inline int getMonth() const
   {
     int y, m, d;
     getYMD( y, m, d );
@@ -100,7 +99,7 @@ struct DateTime
   }
 
   /// Return the day of the month portion of the date
-  inline int getDay() const 
+  inline int getDay() const
   {
     int y, m, d;
     getYMD( y, m, d );
@@ -115,39 +114,39 @@ struct DateTime
   inline int getJulianDate() const { return m_date; }
 
   /// Return the hour portion of the time (0-23)
-  inline int getHour() const 
+  inline int getHour() const
   {
     return m_time / MILLIS_PER_HOUR;
   }
 
     /// Return the minute portion of the time (0-59)
-  inline int getMinute() const 
+  inline int getMinute() const
   {
     return (m_time / MILLIS_PER_MIN) % MINUTES_PER_HOUR;
   }
 
   /// Return the second portion of the time (0-59)
-  inline int getSecond() const 
+  inline int getSecond() const
   {
     return (m_time / MILLIS_PER_SEC) % SECONDS_PER_MIN;
   }
 
   /// Return the millisecond portion of the time
-  inline int getMillisecond() const 
+  inline int getMillisecond() const
   {
     return m_time % MILLIS_PER_SEC;
   }
 
   /// Load the referenced values with the year, month and day
   /// portions of the date in a single operation
-  inline void getYMD (int& year, int& month, int& day) const 
+  inline void getYMD (int& year, int& month, int& day) const
   {
     getYMD( m_date, year, month, day );
   }
 
   /// Load the referenced values with the hour, minute, second and
   /// millisecond portions of the time in a single operation
-  inline void getHMS( int& hour, int& minute, int& second, int& millis ) const 
+  inline void getHMS( int& hour, int& minute, int& second, int& millis ) const
   {
     int ticks = m_time / MILLIS_PER_SEC;
     hour = ticks / SECONDS_PER_HOUR;
@@ -157,7 +156,7 @@ struct DateTime
   }
 
   /// Calculate the weekday of the date (Sunday is 1, Saturday is 7)
-  inline int getWeekDay() const 
+  inline int getWeekDay() const
   {
     int Y, M, D;
     getYMD (Y, M, D);
@@ -172,14 +171,14 @@ struct DateTime
 
   /// Convert the DateTime to a time_t.  Note that this operation
   /// can overflow on 32-bit platforms when we go beyond year 2038.
-  inline time_t getTimeT() const 
+  inline time_t getTimeT() const
   {
     return (SECONDS_PER_DAY * (m_date - JULIAN_19700101) +
             m_time / MILLIS_PER_SEC);
   }
 
   /// Convert the DateTime to a struct tm which is in UTC
-  tm getTmUtc() const 
+  tm getTmUtc() const
   {
     int year, month, day;
     int hour, minute, second, millis;
@@ -200,7 +199,7 @@ struct DateTime
   }
 
   /// Set the date portion of the DateTime
-  void setYMD( int year, int month, int day ) 
+  void setYMD( int year, int month, int day )
   {
     m_date = julianDate( year, month, day );
   }
@@ -244,13 +243,13 @@ struct DateTime
   }
 
   /// Clear the date portion of the DateTime
-  void clearDate() 
+  void clearDate()
   {
     m_date = 0;
   }
 
   /// Clear the time portion of the DateTime
-  void clearTime() 
+  void clearTime()
   {
     m_time = 0;
   }
@@ -259,14 +258,14 @@ struct DateTime
   void set( int date, int time ) { m_date = date; m_time = time; }
 
   /// Initialize from another DateTime
-  void set( const DateTime& other ) 
+  void set( const DateTime& other )
   {
     m_date = other.m_date;
     m_time = other.m_time;
   }
 
   /// Add a number of seconds to this
-  void operator+=( int seconds ) 
+  void operator+=( int seconds )
   {
     int d = seconds / SECONDS_PER_DAY;
     int s = seconds % SECONDS_PER_DAY;
@@ -299,7 +298,7 @@ struct DateTime
   static DateTime now();
 
   /// Convert a time_t and optional milliseconds to a DateTime
-  static DateTime fromTimeT( time_t t, int millis = 0 ) 
+  static DateTime fromTimeT( time_t t, int millis = 0 )
   {
     struct tm tm = time_gmtime( &t );
     return fromTm( tm, millis );
@@ -417,7 +416,7 @@ public:
   UtcTimeStamp( const tm* time, int millisecond = 0 )
   : DateTime( fromTm (*time, millisecond) ) {}
 
-  void setCurrent() 
+  void setCurrent()
   {
     set( DateTime::now() );
   }

@@ -26,11 +26,9 @@
 #pragma warning( disable : 4297 4550 4551 4552 4786 )
 #endif
 
-#include <iostream>
 #include <exception>
 #include <map>
 #include <stack>
-#include <string>
 #include "Mutex.h"
 
 namespace FIX
@@ -110,6 +108,7 @@ private:
   static Mutex s_mutex;
 };
 
+/*
 inline std::ostream& operator<<
 ( std::ostream& ostream, const CallStack::Method& method )
 {
@@ -117,6 +116,7 @@ inline std::ostream& operator<<
          << method.name.c_str()
          << "(" << method.file.c_str() << ":" << method.line << ")";
 }
+*/
 
 inline bool operator==( const CallStack::Method& rhs, const CallStack::Method& lhs )
 {

@@ -18,8 +18,14 @@ Program('test1', 'test/test1.cpp',
     LIBPATH='.') 
 
 Program('bench1', 'test/bench.cpp',
-    CCFLAGS = ['-O2', '-g'],
+    CCFLAGS = ['-O2', '-g', '-Wall'],
     CPPPATH = ['lib', 'gen', 'gen/quickfix', 'lib/quickfix'],
     LIBS=['quickfix', 'xml2', 'pthread'],
+    LIBPATH='.')
+
+Program('bench2', 'test/bench2.cpp',
+    CCFLAGS = ['-O2', '-g', '-Wall'],
+    CPPPATH = ['lib', 'gen', 'gen/quickfix', 'lib/quickfix'],
+    LIBS=['quickfix', 'pthread'],
     LIBPATH='.')
 

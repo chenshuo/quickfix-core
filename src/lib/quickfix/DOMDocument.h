@@ -22,9 +22,7 @@
 #ifndef FIX_DOMDOCUMENT_H
 #define FIX_DOMDOCUMENT_H
 
-#include <string>
 #include <map>
-#include <iostream>
 #include <memory>
 
 namespace FIX

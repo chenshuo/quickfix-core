@@ -84,11 +84,13 @@ typedef int socklen_t;
 /////////////////////////////////////////////
 #endif
 
-#include <string>
 #include <cctype>
 #include <cstdio>
 #include <cstring>
 #include <ctime>
+#include "string"
+#include <istream>
+
 
 namespace FIX
 {

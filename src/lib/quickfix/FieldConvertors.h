@@ -25,9 +25,7 @@
 #include "FieldTypes.h"
 #include "Exceptions.h"
 #include "Utility.h"
-#include <string>
-#include <sstream>
-#include <iomanip>
+//#include <iomanip>
 #include <cstdio>
 #include <limits>
 
@@ -544,7 +542,7 @@ struct UtcTimeOnlyConvertor
     }
 
     int hour, min, sec, millis;
- 
+
     i = 0;
 
     hour = value[i++] - '0';

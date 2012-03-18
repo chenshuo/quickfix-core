@@ -22,18 +22,18 @@
 #ifndef FIX_EXCEPTIONS_H
 #define FIX_EXCEPTIONS_H
 
-#include <string>
-#include <stdexcept>
 #include "Utility.h"
+
+#include <exception>
 
 namespace FIX
 {
 
 /// Base QuickFIX exception type.
-struct Exception : public std::logic_error
+struct Exception : public std::exception
 {
   Exception( const std::string& t, const std::string& d )
-  : std::logic_error( d.size() ? t + ": " + d : t ),
+  : std::exception(),
     type( t ), detail( d )
   {}
   ~Exception() throw() {}

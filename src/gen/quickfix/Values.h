@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
- 
+
 /****************************************************************************
 ** Copyright (c) quickfixengine.org  All rights reserved.
 **
@@ -18,12 +18,11 @@
 ** not clear to you.
 **
 ****************************************************************************/
- 
+
 #ifndef FIX_VALUES_H
 #define FIX_VALUES_H
 
 #include "DeprecatedValues.h"
-#include <string>
 
 namespace FIX
 {
@@ -32,7 +31,7 @@ namespace FIX
   const char BeginString_FIX42[] = "FIX.4.2";
   const char BeginString_FIX41[] = "FIX.4.1";
   const char BeginString_FIX40[] = "FIX.4.0";
-  
+
  const char MsgType_Heartbeat[] = "0";
  const char MsgType_Logon[] = "A";
  const char MsgType_TestRequest[] = "1";
