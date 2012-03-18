@@ -17,3 +17,9 @@ Program('test1', 'test/test1.cpp',
     LIBS=['quickfix', 'xml2', 'pthread'],
     LIBPATH='.') 
 
+Program('bench1', 'test/bench.cpp',
+    CCFLAGS = ['-O2', '-g'],
+    CPPPATH = ['lib', 'gen', 'gen/quickfix', 'lib/quickfix'],
+    LIBS=['quickfix', 'xml2', 'pthread'],
+    LIBPATH='.')
+
