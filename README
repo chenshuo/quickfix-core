@@ -1,0 +1,4 @@
+Core library of QuickFIX 1.12.4
+
+Use QuickFIX as a FIX message encoding & decoding (ie. generating & parsing) library,
+not a network transport library. No networking code is included.
